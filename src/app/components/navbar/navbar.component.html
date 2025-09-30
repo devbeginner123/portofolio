@@ -1,0 +1,35 @@
+<nav class="fixed top-0 inset-x-0 z-40 bg-surface/80 backdrop-blur supports-[backdrop-filter]:bg-surface/60 border-b border-muted/30 fade-in-once">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex h-16 items-center justify-between">
+      <a routerLink="/" class="text-xl font-semibold tracking-tight text-text">
+        <span class="text-primary">&lt;/&gt;</span> Allamsyah
+      </a>
+
+      <div class="hidden md:flex items-center gap-6">
+        <a routerLink="/" routerLinkActive="text-primary" [routerLinkActiveOptions]="{ exact: true }" class="hover:text-primary">Home</a>
+        <a routerLink="/projects" routerLinkActive="text-primary" [routerLinkActiveOptions]="{ exact: true }" class="hover:text-primary">Projects</a>
+        <a routerLink="/contact" routerLinkActive="text-primary" [routerLinkActiveOptions]="{ exact: true }" class="hover:text-primary">Contact</a>
+        <button class="ml-4 inline-flex items-center rounded-md border border-muted/40 px-3 py-1.5 text-sm hover:bg-primary/10" (click)="toggleTheme($event)">
+          <span class="hidden sm:inline" >Toggle theme</span>
+          <svg class="h-5 w-5 sm:ml-2 block dark:hidden" viewBox="0 0 24 24" fill="currentColor"><path d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.8 1.42-1.42zM1 13h3v-2H1v2zm10-9h-2v3h2V4zm7.04 1.46l-1.41-1.41-1.8 1.79 1.42 1.42 1.79-1.8zM17 11v2h3v-2h-3zm-5 7h2v-3h-2v3zm-7.04-1.46l1.41 1.41 1.8-1.79-1.42-1.42-1.79 1.8zM12 6a6 6 0 100 12 6 6 0 000-12z"/></svg>
+          <svg class="h-5 w-5 sm:ml-2 hidden dark:block" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a9.931 9.931 0 00-7.07 2.93A10.004 10.004 0 0012 22a10 10 0 007.07-17.07A9.931 9.931 0 0012 2z"/></svg>
+        </button>
+      </div>
+
+      <button class="md:hidden inline-flex items-center justify-center rounded-md p-2 text-text hover:bg-primary/10" (click)="toggleMenu()" aria-label="Toggle menu">
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="md:hidden" *ngIf="isMenuOpen">
+    <div class="space-y-1 px-2 pb-3 pt-2">
+      <a routerLink="/" routerLinkActive="bg-primary/10 text-primary" [routerLinkActiveOptions]="{ exact: true }" class="block rounded-md px-3 py-2">Home</a>
+      <a routerLink="/projects" routerLinkActive="bg-primary/10 text-primary" [routerLinkActiveOptions]="{ exact: true }" class="block rounded-md px-3 py-2">Projects</a>
+      <a routerLink="/contact" routerLinkActive="bg-primary/10 text-primary" [routerLinkActiveOptions]="{ exact: true }" class="block rounded-md px-3 py-2">Contact</a>
+      <button class="mt-2 w-full rounded-md border border-muted/40 px-3 py-2 text-left hover:bg-primary/10" (click)="toggleTheme()">Toggle theme</button>
+    </div>
+  </div>
+</nav>
+
+

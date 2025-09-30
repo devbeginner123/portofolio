@@ -1,0 +1,25 @@
+<article class="group relative overflow-hidden rounded-3xl bg-muted/10 aspect-[16/10] shadow-sm transition will-change-transform hover:-translate-y-0.5 hover:shadow-2xl fade-in-once">
+  <img *ngIf="image" [src]="image" alt="{{ title }}" class="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]" />
+  <div class="absolute inset-0 bg-gradient-to-br from-black/20 via-black/10 to-transparent transition opacity-0 group-hover:opacity-100"></div>
+
+  <div class="pointer-events-none absolute inset-0 bg-black/0 transition group-hover:bg-black/45"></div>
+
+  <div class="absolute inset-x-0 bottom-0 p-6 z-10">
+    <div class="inline-flex items-center rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-gray-900 backdrop-blur-sm">
+      {{ title }}
+    </div>
+  </div>
+
+  <div class="absolute inset-0 z-10 grid place-items-center opacity-0 transition duration-300 group-hover:opacity-100">
+    <div class="flex flex-wrap justify-center gap-3">
+      <a *ngIf="link" [href]="link" target="_blank" rel="noopener" class="pointer-events-auto inline-flex items-center rounded-md bg-secondary px-4 py-2 text-xs font-medium text-background hover:bg-primary">Live Demo</a>
+      @for (l of links; track l.label) {
+        <a [href]="l.url" target="_blank" rel="noopener" class="pointer-events-auto inline-flex items-center rounded-md bg-white/90 px-4 py-2 text-xs font-medium text-gray-900 hover:bg-white">{{ l.label }}</a>
+      }
+      <a *ngIf="!link && (!links || links.length === 0)" [href]="getPrimaryUrl()" target="_blank" rel="noopener" class="pointer-events-auto inline-flex items-center rounded-md bg-white/90 px-4 py-2 text-xs font-medium text-gray-900 hover:bg-white">Open</a>
+    </div>
+  </div>
+</article>
+
+
+

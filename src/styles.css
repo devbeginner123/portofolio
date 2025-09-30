@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global fade-in animation triggered after loader hides */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in-once { opacity: 0; }
+.animate-ready .fade-in-once { animation: fadeInUp 0.6s ease-out both; }
+
+/* Optional stagger helpers */
+.fade-delay-1 { animation-delay: 0.05s; }
+.fade-delay-2 { animation-delay: 0.1s; }
+.fade-delay-3 { animation-delay: 0.15s; }
+.fade-delay-4 { animation-delay: 0.2s; }
+
+/* Global base styles */
+html, body, app-root {
+  height: 100%;
+}
+
+/* Color tokens via CSS variables
+   Use RGB triplets so Tailwind's <alpha-value> works with opacity utilities
+*/
+:root {
+  /* Light Mode Palette */
+  --color-background: 249 250 251; /* #F9FAFB */
+  --color-surface: 255 255 255;    /* #FFFFFF */
+  --color-text: 17 24 39;          /* #111827 */
+  --color-text-muted: 107 114 128; /* #6B7280 */
+  --color-primary: 37 99 235;      /* #2563EB */
+  --color-secondary: 147 51 234;   /* #9333EA */
+}
+
+.dark {
+  /* Dark Mode Palette */
+  --color-background: 15 23 42;    /* #0F172A */
+  --color-surface: 30 41 59;       /* #1E293B */
+  --color-text: 249 250 251;       /* #F9FAFB */
+  --color-text-muted: 156 163 175; /* #9CA3AF */
+  --color-primary: 59 130 246;     /* #3B82F6 */
+  --color-secondary: 168 85 247;   /* #A855F7 */
+}
+
+body {
+  @apply antialiased;
+  background-color: theme('colors.background');
+  color: theme('colors.text');
+}
+
+/* Smooth variable-driven color transitions */
+* {
+  transition: background-color 300ms ease, color 300ms ease, border-color 300ms ease;
+}
+
+/* THEME INK HIGHLIGHT (non-blocking visual wave) */
+:root { --ink-x: 50vw; --ink-y: 0; --ink-color: 255 255 255; }
+
+.theme-ink::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background: radial-gradient(circle at var(--ink-x) var(--ink-y), rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.18) 15%, rgba(255,255,255,0.12) 28%, rgba(255,255,255,0.08) 38%, rgba(255,255,255,0.04) 50%, rgba(255,255,255,0) 65%);
+  animation: inkPulse 600ms ease-out forwards;
+}
+
+@keyframes inkPulse {
+  0% { opacity: 0.9; transform: scale(0.9); }
+  60% { opacity: 0.4; transform: scale(1.02); }
+  100% { opacity: 0; transform: scale(1.05); }
+}
+
+/* Helpers for surfaces/cards */
+.surface {
+  background-color: theme('colors.surface');
+  color: theme('colors.text');
+}
+
+/* Text utility for muted copy */
+.text-muted {
+  color: theme('colors.muted');
+}
+
+/* Brand utilities (optional) */
+.text-primary { color: theme('colors.primary'); }
+.bg-primary { background-color: theme('colors.primary'); }
+.text-secondary { color: theme('colors.secondary'); }
+.bg-secondary { background-color: theme('colors.secondary'); }

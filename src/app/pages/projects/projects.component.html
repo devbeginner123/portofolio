@@ -1,0 +1,14 @@
+<section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+  <div class="text-center">
+    <h2 class="text-3xl font-bold tracking-tight text-text">My Projects</h2>
+    <p class="mt-2 text-muted">Selected works with modern stacks and smooth UX.</p>
+  </div>
+  <div class="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 fade-in-once">
+    @for (p of projects; track p.title) {
+      <app-project-card [title]="p.title" [description]="p.description" [tags]="p.tags" [link]="p.link" [links]="p.links" [image]="p.image" />
+    }
+  </div>
+</section>
+
+
+

@@ -1,0 +1,22 @@
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  display: flex;
+  gap: 2.5rem; /* match gap-10 */
+  width: max-content; /* prevent wrapping */
+  animation: marquee 30s linear infinite;
+  will-change: transform;
+}
+
+img { filter: drop-shadow(0 1px 1px rgb(0 0 0 / 0.06)); flex: none; }
+
+/* Edge fade mask for smooth reveal/hide */
+.marquee-viewport {
+  -webkit-mask-image: linear-gradient(to right, transparent 0, black 40px, black calc(100% - 40px), transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, black 40px, black calc(100% - 40px), transparent 100%);
+}
+
+

@@ -1,0 +1,29 @@
+<section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+  <div class="grid md:grid-cols-2 gap-10 items-center">
+    <div>
+      <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-text">
+        <span>{{ typedTitle }}</span>
+        <span class="text-primary" *ngIf="typedTitle.length === fullTitle.length"> </span>
+        <span class="inline-block w-3 h-6 ml-1 align-middle bg-primary/80 animate-[blink_1s_steps(2)_infinite]"></span>
+      </h1>
+      <p class="mt-12 text-lg text-muted">I’m a Full Stack Developer experienced in Next.js, Vue.js, Angular, React, Laravel, Node.js, Express.js, MongoDB, MySQL, Flutter, and Kotlin, with a focus on building scalable solutions through the Software Development Life Cycle (SDLC).</p>
+      <div class="mt-16 flex items-center gap-6 fade-in-once">
+        <a routerLink="/projects" class="inline-flex items-center rounded-md bg-secondary px-4 py-2 text-background hover:bg-primary">View Projects</a>
+        <a routerLink="/contact" class="inline-flex items-center rounded-md border border-muted/40 px-4 py-2 hover:bg-primary/10">Contact Me</a>
+      </div>
+      
+    </div>
+    <div class="flex md:justify-end fade-in-once">
+      <div class="h-48 w-48 md:h-64 md:w-64 rounded-full p-1 bg-gradient-to-tr from-primary to-secondary shadow-lg">
+        <div class="h-full w-full rounded-full grid place-items-center bg-gradient-to-tr from-primary to-secondary">
+          <span class="text-4xl md:text-5xl font-bold text-white">&lt;/&gt;</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="fade-in-once"><app-frontend-tools></app-frontend-tools></div>
+<div class="fade-in-once"><app-backend-tools></app-backend-tools></div>
+
+
