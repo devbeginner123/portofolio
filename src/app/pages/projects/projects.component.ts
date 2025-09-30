@@ -14,9 +14,11 @@ export class ProjectsComponent {
       title: 'Game Info Explorer + AI Recommendations',
       description: 'AI wrapper with Firebase OAuth and REST integrations.',
       tags: ['React', 'Firebase', 'Tailwind'],
-      link: '',
+      link: 'https://react-ai-game-explorer.vercel.app/',
       image: 'https://d3lkc3n5th01x7.cloudfront.net/wp-content/uploads/2024/01/04203406/ai-in-gaming-01-1.png',
-      links: []
+      links: [
+        { label: 'Repository', url: 'https://github.com/devbeginner123/react-ai-game-explorer/tree/main' }
+      ]
     },
     {
       title: 'E-Procurement (Blockchain Simulation)',
